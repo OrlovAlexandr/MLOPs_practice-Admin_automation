@@ -11,6 +11,7 @@ f_input = sys.argv[1]
 f_output = os.path.join("data", "stage1", "train.csv")
 os.makedirs(os.path.join("data", "stage1"), exist_ok=True)
 
+
 def process_data(fd_in, fd_out):
     fd_in.readline()
     for line in fd_in:
@@ -25,7 +26,7 @@ def process_data(fd_in, fd_out):
             p_age = line[5]
         fd_out.write("{},{},{},{}\n".format(p_survived, p_pclass, p_sex, p_age))
 
+
 with io.open(f_input, encoding="utf8") as fd_in:
     with io.open(f_output, "w", encoding="utf8") as fd_out:
         process_data(fd_in, fd_out)
-
