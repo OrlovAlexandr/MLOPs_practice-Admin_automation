@@ -21,8 +21,8 @@ os.makedirs(os.path.join("data", "stage4"), exist_ok=True)
 p_split_ratio = params["split_ratio"]
 
 df = pd.read_csv(f_input)
-X = df.iloc[:,[1,2,3]]
-y = df.iloc[:,0]
+X = df.iloc[:, [1, 2, 3]]
+y = df.iloc[:, 0]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=p_split_ratio, stratify=y)
 
 pd.concat([X_train, y_train], axis=1).to_csv(f_output_train, header=None, index=None)
